@@ -11,6 +11,7 @@ import { app } from "../firebase.js";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   updateStart,
   updateSuccess,
@@ -24,7 +25,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
 function DashProfile() {
-  const { currentUser, error } = useSelector((state) => state.user);
+  const { currentUser, error, loading } = useSelector((state) => state.user);
 
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
@@ -156,11 +157,11 @@ function DashProfile() {
 
   const handleSignout = async () => {
     try {
-      const res = await fetch('/api/user/signout', {
-        method: 'POST',
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
       });
       const data = await res.json();
-      if (!res.ok) {
+      if (!res.ok) { 
         console.log(data.message);
       } else {
         dispatch(signoutSuccess());
@@ -241,15 +242,33 @@ function DashProfile() {
           placeholder="password"
           onChange={handleChange}
         />
-        <Button type="submit" gradientDuoTone="purpleToBlue" outline>
-          Update
+        <Button
+          type="submit"
+          gradientDuoTone="purpleToBlue"
+          outline
+          disabled={loading || imageFileUploading}
+        >
+          {loading ? "Loading..." : "Update"}
         </Button>
+        {currentUser.isAdmin && (
+          <Link to={"/create-post"}>
+            <Button
+              type="button"
+              gradientDuoTone="purpleToPink"
+              className="w-full"
+            >
+              Create a post
+            </Button>
+          </Link>
+        )}
       </form>
       <div className="text-red-500 flex justify-between mt-5">
         <span onClick={() => setShowModal(true)} className="cursor-pointer">
           Delete Account
         </span>
-        <span onClick={handleSignout} className="cursor-pointer">Sign Out</span>
+        <span onClick={handleSignout} className="cursor-pointer">
+          Sign Out
+        </span>
       </div>
       {updateUserSuccess && (
         <Alert color="success" className="mt-5">
