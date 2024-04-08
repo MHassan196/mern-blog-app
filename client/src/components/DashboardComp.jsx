@@ -125,7 +125,7 @@ function DashboardComp() {
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
           <div className="flex justify-between  p-3 text-sm font-semibold">
             <h1 className="text-center p-2">Recent users</h1>
-            <Button outline gradientDuoTone="purpleToPink">
+            <Button outline className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500">
               <Link to={"/dashboard?tab=users"}>See all</Link>
             </Button>
           </div>
@@ -154,7 +154,7 @@ function DashboardComp() {
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
           <div className="flex justify-between  p-3 text-sm font-semibold">
             <h1 className="text-center p-2">Recent comments</h1>
-            <Button outline gradientDuoTone="purpleToPink">
+            <Button outline className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500">
               <Link to={"/dashboard?tab=comments"}>See all</Link>
             </Button>
           </div>
@@ -176,10 +176,10 @@ function DashboardComp() {
               ))}
           </Table>
         </div>
-        <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
+        <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800 overflow-x-scroll" >
           <div className="flex justify-between  p-3 text-sm font-semibold">
             <h1 className="text-center p-2">Recent posts</h1>
-            <Button outline gradientDuoTone="purpleToPink">
+            <Button outline className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500">
               <Link to={"/dashboard?tab=posts"}>See all</Link>
             </Button>
           </div>

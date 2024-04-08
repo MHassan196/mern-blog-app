@@ -31,7 +31,7 @@ function FooterCom() {
                     <Footer.Title title="About" />
                     <Footer.LinkGroup col>
                         <Footer.Link
-                            href="#"
+                            href="https://hassan.vercel.app"
                             target="_blank"
                             rel="noopener noreferrer "
                         >

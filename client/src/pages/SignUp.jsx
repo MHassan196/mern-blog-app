@@ -83,7 +83,7 @@ function SignUp() {
                     <Label value="Your Password" /> 
                     <TextInput type="password" placeholder="Password" id="password" onChange={handleChange} />
                 </div>
-                <Button gradientDuoTone='purpleToPink' type="submit" disabled={loading}>
+                <Button className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500" type="submit" disabled={loading}>
                     {
                         loading ? (
                             <>

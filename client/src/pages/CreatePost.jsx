@@ -109,9 +109,17 @@ function CreatePost() {
             <option value="javascript">JavaScript</option>
             <option value="reactjs">React.js</option>
             <option value="nextjs">Next.js</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="php">PHP</option>
+            <option value="web">Web Development</option>
+            <option value="wordpress">Wordpress</option>
+            <option value="angular">Angular</option>
+
           </Select>
         </div>
-        <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
           <FileInput
             type="file"
             accept="image/*"
@@ -119,7 +127,7 @@ function CreatePost() {
           />
           <Button
             type="button"
-            gradientDuoTone="purpleToBlue"
+            className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500"
             size="sm"
             outline
             onClick={handleUpdloadImage}
@@ -148,13 +156,13 @@ function CreatePost() {
         <ReactQuill
           theme="snow"
           placeholder="Write something..."
-          className="h-72 mb-12"
+          className="h-72 mb-16"
           required 
           onChange={(value) => {
             setFormData({ ...formData, content: value });
           }}
         />
-        <Button type="submit" gradientDuoTone="purpleToPink">
+        <Button type="submit" className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500">
           Publish
         </Button>
         {publishError && (

@@ -64,7 +64,7 @@ function CommentSection({ postId }) {
   const handleLike = async (commentId) => {
     try {
       if (!currentUser) {
-        navigate("/sign-in");
+        navigate("/signin");
         return;
       }
       const res = await fetch(`/api/comment/likeComment/${commentId}`, {
@@ -101,7 +101,7 @@ function CommentSection({ postId }) {
     setShowModal(false);
     try {
       if (!currentUser) {
-        navigate("/sign-in");
+        navigate("/signin");
         return;
       }
       const res = await fetch(`/api/comment/deleteComment/${commentId}`, {
@@ -136,7 +136,7 @@ function CommentSection({ postId }) {
       ) : (
         <div className="text-sm text-teal-500 my-5 flex gap-1">
           You must be signed in to comment.
-          <Link className="text-blue-500 hover:underline" to={"/sign-in"}>
+          <Link className="text-blue-500 hover:underline" to={"/signin"}>
             Sign In
           </Link>
         </div>
@@ -157,7 +157,7 @@ function CommentSection({ postId }) {
             <p className="text-gray-500 text-xs">
               {200 - comment.length} characters remaining
             </p>
-            <Button outline gradientDuoTone="purpleToBlue" type="submit">
+            <Button outline className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500" type="submit">
               Submit
             </Button>
           </div>

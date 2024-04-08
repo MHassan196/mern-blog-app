@@ -107,6 +107,11 @@ function Header() {
                 {currentUser.email}
               </span>
             </Dropdown.Header>
+            {currentUser && currentUser.isAdmin && (
+              <Link to={"/dashboard?tab=dash"}>
+                <Dropdown.Item>Dashboard</Dropdown.Item>
+              </Link>
+            )}
             <Link to={"/dashboard?tab=profile"}>
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
@@ -115,7 +120,7 @@ function Header() {
           </Dropdown>
         ) : (
           <Link to="/signin">
-            <Button gradientDuoTone="purpleToBlue" outline>
+            <Button className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500" outline>
               Sign In
             </Button>
           </Link>
@@ -130,7 +135,7 @@ function Header() {
           <Link to="/about">About</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/projects"} as={"div"}>
-          <Link to="/projects">Projects</Link>
+          <Link to="/projects">Blogs</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

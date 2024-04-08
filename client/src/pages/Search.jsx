@@ -130,13 +130,21 @@ function Search() {
               value={sidebarData.category}
               id="category"
             >
+              <option>Select</option>
               <option value="uncategorized">Uncategorized</option>
               <option value="reactjs">React.js</option>
               <option value="nextjs">Next.js</option>
               <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="ai">Artificial Intelligence</option>
+              <option value="php">PHP</option>
+              <option value="web">Web Development</option>
+              <option value="wordpress">Wordpress</option>
+              <option value="angular">Angular</option>
             </Select>
           </div>
-          <Button type="submit" outline gradientDuoTone="purpleToPink">
+          <Button type="submit" outline className="bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500">
             Apply Filters
           </Button>
         </form>
